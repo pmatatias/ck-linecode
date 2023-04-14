@@ -5,7 +5,7 @@ extension GlobalKeyExtension on GlobalKey {
     final renderObject = currentContext?.findRenderObject();
     final translation = renderObject?.getTransformTo(null).getTranslation();
     if (translation != null && renderObject?.paintBounds != null) {
-      final offset = Offset(translation.x, translation.y);
+      final offset = Offset(translation.x, translation.y,);
       return renderObject!.paintBounds.shift(offset);
     } else {
       return null;

@@ -1,3 +1,4 @@
+import 'package:ck_linecode/dart_extension_4/abs_pos_extension.dart';
 import 'package:flutter/material.dart';
 
 class DartExtension4 extends StatefulWidget {
@@ -14,6 +15,8 @@ class _DartExtension4State extends State<DartExtension4> {
   double _x = 10;
   double _y = 10;
 
+  Rect? _rect;
+
   Widget _buildRow(String param, String value) => Row(
         children: [
           SizedBox(width: 120, child: Text(param)),
@@ -28,11 +31,16 @@ class _DartExtension4State extends State<DartExtension4> {
     return GestureDetector(
       onTapDown: (events) {
         print("events: ${events.globalPosition}");
+
+        _x = events.globalPosition.dx;
+        _y = events.globalPosition.dy -
+            (appbar.preferredSize.height + MediaQuery.of(context).padding.top);
+        setState(() {});
+      },
+      onTapUp: (details) {
+        _rect = containerKey.globalPaintBounds;
         setState(() {
-          _x = events.globalPosition.dx;
-          _y = events.globalPosition.dy -
-              (appbar.preferredSize.height +
-                  MediaQuery.of(context).padding.top);
+          
         });
       },
       child: Scaffold(
@@ -44,7 +52,7 @@ class _DartExtension4State extends State<DartExtension4> {
               left: _x,
               width: 30,
               height: 30,
-              child: Container(color: Colors.red),
+              child: Container(key: containerKey, color: Colors.red),
             ),
             Container(
               padding: const EdgeInsets.all(20),
@@ -52,17 +60,18 @@ class _DartExtension4State extends State<DartExtension4> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  _buildRow(
-                       "Status bar height",
-                       ": ${MediaQuery.of(context).padding.top} "),
+                  _buildRow("Status bar height",
+                      ": ${MediaQuery.of(context).padding.top} "),
 
                   const Divider(),
-                  _buildRow("AppBar height",": ${appbar.preferredSize.height}"),
+                  _buildRow(
+                      "AppBar height", ": ${appbar.preferredSize.height}"),
                   const Divider(),
-                  _buildRow("X coordinate",": $_x"),
+                  _buildRow("X coordinate", ": $_x"),
                   const Divider(),
-                  _buildRow("Y coordinate",": $_y"),
+                  _buildRow("Y coordinate", ": $_y"),
                   const Divider(),
+                  _buildRow("Widget corner", ": $_rect"),
                   // Container(
                   //   key: containerKey,
                   //   color: Colors.amber,
