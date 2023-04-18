@@ -1,4 +1,4 @@
-import 'package:ck_linecode/dart_extension_5/demo.dart';
+import 'package:ck_linecode/reactjs_card/dashboard_view.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const ListUpdateDemo(),
+      home: const DashboardView(),
     );
   }
 }
