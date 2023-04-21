@@ -112,21 +112,21 @@ class DashboardView extends StatelessWidget {
         backgroundColor: Colors.grey.shade100,
       ),
       backgroundColor: Colors.grey.shade100,
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 18.0),
-        child: GridView.count(
-          crossAxisSpacing: 20,
-          // mainAxisSpacing: 20,
-          childAspectRatio: size.width /
-              size.height /
-              context.responsive(0.3,
-                  md: 0.6,
-                  lg: 0.59,
-                  xl: 1.2), // this ratio is hard code, you may need to change it base on your need
-          crossAxisCount: context.responsive(1, md: 2, xl: 4),
-          children: widge,
-        ),
-      ),
+body: Padding(
+  padding: const EdgeInsets.symmetric(horizontal: 18.0),
+  child: GridView.count(
+    crossAxisSpacing: 20,
+    // mainAxisSpacing: 20,
+    childAspectRatio: size.width /
+        size.height /
+        context.responsive(0.3,
+            md: 0.6,
+            lg: 0.59,
+            xl: 1.2), 
+    crossAxisCount: context.responsive(1, md: 2, xl: 4),
+    children: widge,
+  ),
+),
     );
   }
 }

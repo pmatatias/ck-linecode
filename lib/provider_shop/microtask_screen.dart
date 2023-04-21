@@ -3,14 +3,26 @@ import 'package:ck_linecode/provider_shop/pstate.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class CatalogScreen extends StatefulWidget {
-  const CatalogScreen({super.key});
+class MicrotaskScreen extends StatefulWidget {
+  const MicrotaskScreen({super.key});
 
   @override
-  State<CatalogScreen> createState() => _CatalogScreenState();
+  State<MicrotaskScreen> createState() => _MicrotaskScreenState();
 }
 
-class _CatalogScreenState extends State<CatalogScreen> {
+class _MicrotaskScreenState extends State<MicrotaskScreen> {
+  @override
+  void initState() {
+    super.initState();
+
+
+    Future.microtask(() {
+      context.read<AppState>().initData();
+      setState(() {});
+      print("done");
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,9 +34,7 @@ class _CatalogScreenState extends State<CatalogScreen> {
              ElevatedButton(
                   onPressed: () {
                     final ps = context.read<PState>();
-                    ps.nu = "qweqw";
-
-                    print(ps.nu);
+                    ps.nu = "qqqqq";
                     setState(() {
                       
                     });
