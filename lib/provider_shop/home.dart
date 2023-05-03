@@ -24,7 +24,7 @@ class HomeScreen extends StatelessWidget {
                   child: const Text("update")),
               ElevatedButton(
                   onPressed: () {
-                    final ps = context.read<PState>();
+                    // final ps = context.read<PState>();
                     Navigator.push(
                         context,
                         MaterialPageRoute(

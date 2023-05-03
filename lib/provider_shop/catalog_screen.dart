@@ -24,7 +24,7 @@ class _CatalogScreenState extends State<CatalogScreen> {
                     final ps = context.read<PState>();
                     ps.nu = "qweqw";
 
-                    print(ps.nu);
+                    // print(ps.nu);
                     setState(() {
                       
                     });
@@ -32,7 +32,7 @@ class _CatalogScreenState extends State<CatalogScreen> {
                   child: const Text("update")),
           Center(child: Consumer<AppState>(builder: (context, value, child) {
             if (value.isLoading) return const CircularProgressIndicator();
-            return Text(value.txt);
+            return Text(value.gettxt);
           })),
         ],
       ),

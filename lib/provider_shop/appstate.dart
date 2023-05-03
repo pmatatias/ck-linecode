@@ -15,7 +15,7 @@ class AppState extends ChangeNotifier {
   }
 
   String _txt = "";
-  String get txt => _txt;
+  String get gettxt => _txt;
   set txt(String newtxt) {
     _txt = newtxt;
   }

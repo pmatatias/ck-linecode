@@ -26,7 +26,7 @@ class _CatalogScreenState extends State<CatalogScreen> {
       ),
       body: Center(child: Consumer<AppState>(builder: (context, value, child) {
         if (value.isLoading) return const CircularProgressIndicator();
-        return Text(value.txt);
+        return Text(value.gettxt);
       })),
     );
   }

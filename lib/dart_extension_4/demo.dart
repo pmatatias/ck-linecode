@@ -12,8 +12,8 @@ class MyWidget extends StatelessWidget {
 GestureDetector(
   onTapUp: (details) {
     
-    print(details.globalPosition);
-    print(details.localPosition);
+    // print(details.globalPosition);
+    // print(details.localPosition);
   },
   child: Container(
     width: 200,

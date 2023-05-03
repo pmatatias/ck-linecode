@@ -10,12 +10,10 @@ class MyView extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Custom paint Demo'),
       ),
-      body: Container(
-        child: Center(
-          child: CustomPaint(
-            size: const Size(400,400), 
-            painter: CurvedPainter(),
-          ),
+      body: Center(
+        child: CustomPaint(
+          size: const Size(400,400), 
+          painter: CurvedPainter(),
         ),
       ),
     );
