@@ -30,7 +30,7 @@ class _DartExtension4State extends State<DartExtension4> {
     );
     return GestureDetector(
       onTapDown: (events) {
-        print("events: ${events.globalPosition}");
+        // print("events: ${events.globalPosition}");
 
         _x = events.globalPosition.dx;
         _y = events.globalPosition.dy -

@@ -19,7 +19,7 @@ class _MicrotaskScreenState extends State<MicrotaskScreen> {
     Future.microtask(() {
       context.read<AppState>().initData();
       setState(() {});
-      print("done");
+      // print("done");
     });
   }
 
@@ -42,7 +42,7 @@ class _MicrotaskScreenState extends State<MicrotaskScreen> {
                   child: const Text("update")),
           Center(child: Consumer<AppState>(builder: (context, value, child) {
             if (value.isLoading) return const CircularProgressIndicator();
-            return Text(value.txt);
+            return Text(value.gettxt);
           })),
         ],
       ),
