@@ -146,36 +146,3 @@ class _DynamicAppbarState extends State<DynamicAppbar> {
     );
   }
 }
-
-
-
-// class ContentList extends StatelessWidget {
-//   const ContentList({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return SliverList(
-//       delegate: SliverChildBuilderDelegate(
-//           (context, index) => Container(
-//                 padding: const EdgeInsets.fromLTRB(10, 30, 10, 10),
-//                 decoration: const BoxDecoration(
-//                     color: Colors.amberAccent,
-//                     borderRadius: BorderRadius.only(
-//                         topRight: Radius.circular(30),
-//                         topLeft: Radius.circular(30))),
-//                 child: Column(
-//                   children: [
-//                     Card(
-//                       child: Padding(
-//                         padding: const EdgeInsets.all(8.0),
-//                         child: Text(data[0]),
-//                       ),
-//                     )
-//                   ],
-//                 ),
-//               ),
-//           childCount: 2),
-//       //  SliverChildListDelegate([]),
-//     );
-//   }
-// }
