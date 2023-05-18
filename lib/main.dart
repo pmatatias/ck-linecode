@@ -2,7 +2,7 @@ import 'package:ck_linecode/provider_shop/pstate.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'dynamic_appbar/dynamic_appbar.dart';
+import 'medium_notification/notif_list_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: const DynamicAppbar(),
+        home: const NotifScreen(),
       ),
     );
   }
