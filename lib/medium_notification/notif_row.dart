@@ -38,10 +38,10 @@ class NotifRow extends StatelessWidget {
                     ]),
               ),
                Padding(
-                padding: const EdgeInsets.symmetric(vertical: 2),
+                padding: const EdgeInsets.symmetric(vertical: 5),
                 child: Text(
                   data.time,
-                  style: const TextStyle(fontSize: 11, color: Colors.grey),
+                  style: const TextStyle(fontSize: 12, color: Colors.grey),
                 ),
               )
             ],
