@@ -1,4 +1,3 @@
-import 'package:ck_linecode/dart_extension_4/abs_pos_extension.dart';
 import 'package:flutter/material.dart';
 
 class DartExtension4 extends StatefulWidget {
@@ -12,8 +11,8 @@ class DartExtension4 extends StatefulWidget {
 
 class _DartExtension4State extends State<DartExtension4> {
   final containerKey = GlobalKey();
-  double _x = 10;
-  double _y = 10;
+  final double _x = 10;
+  final double _y = 10;
 
   Rect? _rect;
 
@@ -29,20 +28,22 @@ class _DartExtension4State extends State<DartExtension4> {
       title: const Text("Dart Extension 4"),
     );
     return GestureDetector(
-      onTapDown: (events) {
-        // print("events: ${events.globalPosition}");
+      
+      
+      // onTapDown: (events) {
+      //   // print("events: ${events.globalPosition}");
 
-        _x = events.globalPosition.dx;
-        _y = events.globalPosition.dy -
-            (appbar.preferredSize.height + MediaQuery.of(context).padding.top);
-        setState(() {});
-      },
-      onTapUp: (details) {
-        _rect = containerKey.globalPaintBounds;
-        setState(() {
+      //   _x = events.globalPosition.dx;
+      //   _y = events.globalPosition.dy -
+      //       (appbar.preferredSize.height + MediaQuery.of(context).padding.top);
+      //   setState(() {});
+      // },
+      // onTapUp: (details) {
+      //   _rect = containerKey.globalPaintBounds;
+      //   setState(() {
           
-        });
-      },
+      //   });
+      // },
       child: Scaffold(
         appBar: appbar,
         body: Stack(
