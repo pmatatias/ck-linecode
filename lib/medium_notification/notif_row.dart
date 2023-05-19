@@ -24,20 +24,28 @@ class NotifRow extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               RichText(
+                maxLines: 6,
+                overflow: TextOverflow.ellipsis,
                 text: TextSpan(
                     style: const TextStyle(
                         fontWeight: FontWeight.w400, color: Colors.black),
                     text: data.userName,
                     children: [
                       TextSpan(
-                          text: " ${data.notifType} ",
+                          text: " ${data.notifType.name} ",
                           style: const TextStyle(
                               color: Colors.grey, fontWeight: FontWeight.w400)),
                       if (data.articleTitle.isNotEmpty)
                         TextSpan(text: data.articleTitle),
+                      if (data.readingListName.isNotEmpty)
+                        TextSpan(
+                            text: " to their list ${data.readingListName}",
+                            style: const TextStyle(
+                                color: Colors.grey,
+                                fontWeight: FontWeight.w400)),
                     ]),
               ),
-               Padding(
+              Padding(
                 padding: const EdgeInsets.symmetric(vertical: 5),
                 child: Text(
                   data.time,
@@ -46,7 +54,7 @@ class NotifRow extends StatelessWidget {
               )
             ],
           )),
-          if (data.notifType == "followed you") const FollowBtn()
+          if (data.notifType.id == 3) const FollowBtn()
         ],
       ),
     );
