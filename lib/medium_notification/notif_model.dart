@@ -17,7 +17,7 @@ class NotifModel {
     this.readingListName = "",
   });
 
- static NotifModel empty() =>
+  static NotifModel empty() =>
       NotifModel(userName: "", notifType: NotifType(id: 0, name: ""), time: "");
 }
 
@@ -90,6 +90,22 @@ List<NotifModel> notifData = [
       userName: "Pmatatias",
       notifType: NotifType(id: 2, name: "clapped for"),
       imageAsset: "assets/pmatatias.png",
+      articleTitle: "The title of the article will be here",
+      time: "9 days ago"),
+  NotifModel(
+      id: 9,
+      userName: "Tralala",
+      notifType: NotifType(id: 3, name: "followed you"),
+      time: "9 days ago"),
+  NotifModel(
+      id: 10,
+      userName: "Goreng",
+      notifType: NotifType(id: 3, name: "followed you"),
+      time: "9 days ago"),
+  NotifModel(
+      id: 11,
+      userName: "Bawang",
+      notifType: NotifType(id: 4, name: "highligted"),
       articleTitle: "The title of the article will be here",
       time: "9 days ago"),
 ];
