@@ -16,6 +16,9 @@ class NotifModel {
     required this.time,
     this.readingListName = "",
   });
+
+ static NotifModel empty() =>
+      NotifModel(userName: "", notifType: NotifType(id: 0, name: ""), time: "");
 }
 
 /// type to cover

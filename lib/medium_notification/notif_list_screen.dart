@@ -1,7 +1,13 @@
 import 'package:ck_linecode/medium_notification/notif_model.dart';
+import 'package:ck_linecode/medium_notification/shimmer_widget.dart';
 import 'package:flutter/material.dart';
 
 import 'notif_row.dart';
+
+Future<bool> loading() async {
+  await Future.delayed(const Duration(seconds: 4));
+  return Future.value(true);
+}
 
 class NotifScreen extends StatelessWidget {
   const NotifScreen({super.key});
@@ -38,12 +44,20 @@ class NotifScreen extends StatelessWidget {
                 ),
                 label: "Profil"),
           ]),
-      body: ListView.builder(
-        itemCount: notifData.length,
-        itemBuilder: (context, index) => NotifRow(
-          data: notifData[index],
-        ),
-      ),
+      body: FutureBuilder<bool>(
+          future: loading(),
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return const ShimmerWidget();
+            } else {
+              return ListView.builder(
+                itemCount: notifData.length,
+                itemBuilder: (context, index) => NotifRow(
+                  data: notifData[index],
+                ),
+              );
+            }
+          }),
     );
   }
 }
