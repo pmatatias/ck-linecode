@@ -14,7 +14,7 @@ class AvatarWidget extends StatelessWidget {
     return Stack(
       children: [
         CircleAvatar(
-          radius: 28,
+          radius: 24,
           backgroundColor: showTxt
               ? Color.fromRGBO(
                   Random().nextInt(255),

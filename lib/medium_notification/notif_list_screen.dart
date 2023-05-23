@@ -1,7 +1,7 @@
-import 'package:ck_linecode/medium_notification/notif_model.dart';
 import 'package:ck_linecode/medium_notification/shimmer_widget.dart';
 import 'package:flutter/material.dart';
 
+import 'notif_model.dart';
 import 'notif_row.dart';
 
 Future<bool> loading() async {

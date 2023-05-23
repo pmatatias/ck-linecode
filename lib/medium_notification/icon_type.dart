@@ -46,7 +46,7 @@ class MyIconType extends StatelessWidget {
       padding: const EdgeInsets.all(3),
       decoration: BoxDecoration(
           color: bgColor, borderRadius: BorderRadius.circular(50)),
-      child: Icon(iconData, color: Colors.white, size: 16),
+      child: Icon(iconData, color: Colors.white, size: 14),
     );
   }
 }
