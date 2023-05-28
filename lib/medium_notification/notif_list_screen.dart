@@ -50,10 +50,13 @@ class NotifScreen extends StatelessWidget {
             if (snapshot.connectionState == ConnectionState.waiting) {
               return const ShimmerWidget();
             } else {
-              return ListView.builder(
-                itemCount: notifData.length,
-                itemBuilder: (context, index) => NotifRow(
-                  data: notifData[index],
+              return RefreshIndicator(
+                onRefresh: loading,
+                child: ListView.separated(
+                  separatorBuilder:(context, idx)=> const SizedBox(height: 1),
+                  itemCount: notifData.length,
+                  itemBuilder: (context, index) =>
+                      NotifRow(data: notifData[index]),
                 ),
               );
             }
