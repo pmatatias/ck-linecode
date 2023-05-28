@@ -1,3 +1,4 @@
+import 'package:ck_linecode/dart_extension_6/time_difference.dart';
 import 'package:ck_linecode/medium_notification/follow_btn.dart';
 import 'package:flutter/material.dart';
 
@@ -20,9 +21,8 @@ class NotifRow extends StatelessWidget {
           AvatarWidget(data: data),
           const SizedBox(width: 16),
           Expanded(
-              child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
+            child:
+                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               RichText(
                 maxLines: 6,
                 overflow: TextOverflow.ellipsis,
@@ -48,15 +48,20 @@ class NotifRow extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 5),
                 child: Text(
-                  data.time,
+                  describeFormattedTime(data.time),
                   style: const TextStyle(fontSize: 12, color: Colors.grey),
                 ),
-              )
-            ],
-          )),
+              ),
+            ]),
+          ),
           if (data.notifType.id == 3) const FollowBtn()
         ],
       ),
     );
   }
+}
+
+String describeFormattedTime(String formattedString) {
+  final dtT = DateTime.tryParse(formattedString);
+  return (dtT != null) ? dtT.getDifferences() : "";
 }
