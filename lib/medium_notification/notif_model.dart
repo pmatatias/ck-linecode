@@ -51,7 +51,7 @@ List<NotifModel> notifData = [
   NotifModel(
       id: 2,
       userName: "John Doe",
-      notifType: NotifType(id: 2, name: "clapped for"),
+    notifType: NotifType(id: 5, name: "added your story"),
       articleTitle:
           "Level up my flutter loading widget with Logo + Flutter animation",
       time: "2023-05-28 10:23:32.000"),
