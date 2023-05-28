@@ -18,6 +18,10 @@ class MyIconType extends StatelessWidget {
     }
     IconData iconData;
     Color bgColor;
+    // Color bgColor = switch (type.id) {
+      
+    //   _ => kBlue,
+    // };
 
     switch (type.id) {
       case 1:
