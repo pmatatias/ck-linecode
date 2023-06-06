@@ -2,7 +2,7 @@ import 'package:ck_linecode/provider_shop/pstate.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'medium_notification/notif_list_screen.dart';
+import 'iframe_attach_file.dart/webview_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         theme: ThemeData(primarySwatch: Colors.blue),
-        home: const NotifScreen(),
+        home: const PreviewWebpage(),
       ),
     );
   }
