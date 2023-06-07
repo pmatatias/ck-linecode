@@ -8,7 +8,7 @@ class PreScreen extends StatefulWidget {
 }
 
 class _PreScreenState extends State<PreScreen> {
-  final _ctrl = TextEditingController();
+  // final _ctrl = TextEditingController();
   bool visible = false;
   Function()? at;
   @override
@@ -45,9 +45,8 @@ class _PreScreenState extends State<PreScreen> {
                       icon: const Icon(Icons.visibility))),
               keyboardType: TextInputType.visiblePassword,
             ),
-            const SizedBox(
-              height: 40,
-            ),
+            const SizedBox(height: 40),
+            const FittedBox(fit: BoxFit.fill),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -96,6 +95,7 @@ String testSwitchStatementMethod(int value) {
       return "";
   }
 }
+
 String testSwitchExpressionmethod(int value) {
   final res = switch (value) {
     1 => "one",
