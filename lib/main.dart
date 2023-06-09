@@ -1,7 +1,8 @@
-import 'package:ck_linecode/june_notes/pre_screen.dart';
 import 'package:ck_linecode/provider_shop/pstate.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import 'animea/ovo.dart';
 
 
 void main() {
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         theme: ThemeData(primarySwatch: Colors.blue),
-        home: const PreScreen(),
+        home: const AnimeaScreen(),
       ),
     );
   }

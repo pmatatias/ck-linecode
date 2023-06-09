@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:webview_flutter/webview_flutter.dart';
+// ignore: depend_on_referenced_packages
 import 'package:webview_flutter_android/webview_flutter_android.dart'
     as webview_flutter_android;
 import 'package:image/image.dart' as image;
@@ -79,7 +80,7 @@ class _PreviewWebpageState extends State<PreviewWebpage> {
       final file = await picker.pickVideo(
           source: ImageSource.camera, maxDuration: const Duration(seconds: 10));
       // await _playVideo(file);
-      print(file?.name);
+      // print(file?.name);
       return [];
     } else {
       try {
