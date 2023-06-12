@@ -2,8 +2,7 @@ import 'package:ck_linecode/provider_shop/pstate.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'animea/ovo.dart';
-
+import 'animea/view_voo.dart';
 
 void main() {
   runApp(const MyApp());

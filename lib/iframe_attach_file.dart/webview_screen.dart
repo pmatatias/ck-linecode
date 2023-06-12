@@ -80,7 +80,7 @@ class _PreviewWebpageState extends State<PreviewWebpage> {
       final file = await picker.pickVideo(
           source: ImageSource.camera, maxDuration: const Duration(seconds: 10));
       // await _playVideo(file);
-      // print(file?.name);
+      print(file?.name);
       return [];
     } else {
       try {

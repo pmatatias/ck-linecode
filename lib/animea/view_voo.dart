@@ -1,4 +1,7 @@
+import 'package:ck_linecode/animea/voo.dart';
 import 'package:flutter/material.dart';
+
+
 
 class AnimeaScreen extends StatefulWidget {
   const AnimeaScreen({super.key});
