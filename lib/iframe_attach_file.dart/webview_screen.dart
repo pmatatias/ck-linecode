@@ -1,6 +1,5 @@
 import 'dart:io';
 
-// import 'package:file_picker/file_picker.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -36,6 +35,7 @@ class _PreviewWebpageState extends State<PreviewWebpage> {
       ))
       ..loadRequest(Uri.parse(
           "https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/capture"));
+
     initFilePicker();
   }
 
@@ -79,7 +79,8 @@ class _PreviewWebpageState extends State<PreviewWebpage> {
       final picker = image_picker.ImagePicker();
       final file = await picker.pickVideo(
           source: ImageSource.camera, maxDuration: const Duration(seconds: 10));
-      // await _playVideo(file);
+      // convert bytes video
+      // and get the path file
       print(file?.name);
       return [];
     } else {
@@ -109,7 +110,9 @@ class _PreviewWebpageState extends State<PreviewWebpage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: const Text("Attach files Iframe [Flutter]"),
+      ),
       body: WebViewWidget(controller: _controller),
     );
   }
