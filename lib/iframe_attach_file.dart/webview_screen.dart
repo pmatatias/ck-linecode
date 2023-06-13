@@ -3,12 +3,10 @@ import 'dart:io';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 // ignore: depend_on_referenced_packages
 import 'package:webview_flutter_android/webview_flutter_android.dart'
     as webview_flutter_android;
-import 'package:image/image.dart' as image;
 import 'package:image_picker/image_picker.dart' as image_picker;
 
 class PreviewWebpage extends StatefulWidget {
@@ -63,26 +61,29 @@ class _PreviewWebpageState extends State<PreviewWebpage> {
         return [];
       }
 
-      final imageData = await photo.readAsBytes();
-      final decodedImage = image.decodeImage(imageData)!;
-      final scaledImage = image.copyResize(decodedImage, width: 500);
-      final jpg = image.encodeJpg(scaledImage, quality: 90);
+      // final imageData = await photo.readAsBytes();
+      // final decodedImage = image.decodeImage(imageData)!;
+      // final scaledImage = image.copyResize(decodedImage, width: 500);
+      // final jpg = image.encodeJpg(scaledImage, quality: 90);
 
-      final filePath = (await getTemporaryDirectory()).uri.resolve(
-            './image_${DateTime.now().microsecondsSinceEpoch}.jpg',
-          );
-      final file = await File.fromUri(filePath).create(recursive: true);
-      await file.writeAsBytes(jpg, flush: true);
+      // final filePath = (await getTemporaryDirectory()).uri.resolve(
+      //       './image_${DateTime.now().microsecondsSinceEpoch}.jpg',
+      //     );
+      // final file = await File.fromUri(filePath).create(recursive: true);
+      // await file.writeAsBytes(jpg, flush: true);
 
-      return [file.uri.toString()];
+      return [Uri.file(photo.path).toString()];
     } else if (params.acceptTypes.any((type) => type == 'video/*')) {
       final picker = image_picker.ImagePicker();
-      final file = await picker.pickVideo(
+      final vidFile = await picker.pickVideo(
           source: ImageSource.camera, maxDuration: const Duration(seconds: 10));
       // convert bytes video
       // and get the path file
-      print(file?.name);
-      return [];
+      if (vidFile == null) {
+        return [];
+      }
+
+      return [Uri.file(vidFile.path).toString()];
     } else {
       try {
         if (params.mode ==
