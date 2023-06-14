@@ -18,7 +18,7 @@ class _AnimeaScreenState extends State<AnimeaScreen>
   void initState() {
     super.initState();
     _controller = AnimationController(
-        duration: const Duration(milliseconds: 400), vsync: this);
+        duration: const Duration(milliseconds: 410), vsync: this);
     // _controller.addListener(() {
     //   _playAnimation();
     // });
