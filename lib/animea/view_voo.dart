@@ -1,8 +1,6 @@
 import 'package:ck_linecode/animea/voo.dart';
 import 'package:flutter/material.dart';
 
-
-
 class AnimeaScreen extends StatefulWidget {
   const AnimeaScreen({super.key});
 
@@ -18,10 +16,7 @@ class _AnimeaScreenState extends State<AnimeaScreen>
   void initState() {
     super.initState();
     _controller = AnimationController(
-        duration: const Duration(milliseconds: 410), vsync: this);
-    // _controller.addListener(() {
-    //   _playAnimation();
-    // });
+        duration: const Duration(milliseconds: 800), vsync: this);
     _controller.repeat(reverse: true);
   }
 
@@ -70,15 +65,15 @@ class _AnimeaScreenState extends State<AnimeaScreen>
               // )
             ],
           ),
-          const Divider(),
-          Container(
-            width: 20,
-            height: 20,
-            decoration: BoxDecoration(
-                color: Colors.amber,
-                borderRadius: BorderRadius.lerp(
-                    BorderRadius.circular(20), BorderRadius.circular(10), 2)),
-          )
+          // const Divider(),
+          // Container(
+          //   width: 20,
+          //   height: 20,
+          //   decoration: BoxDecoration(
+          //       color: Colors.amber,
+          //       borderRadius: BorderRadius.lerp(
+          //           BorderRadius.circular(20), BorderRadius.circular(10), 2)),
+          // )
         ],
       )),
       floatingActionButton: FloatingActionButton(onPressed: () {
