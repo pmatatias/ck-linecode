@@ -9,6 +9,10 @@ class PlunagPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     Path path_0 = Path();
+    path_0.moveTo(size.width*17.16629,size.height*21.10228);
+    //  path_0.cubicTo(size.width*17.16629,size.height*21.10228,size.width*17.17678,size.height*21.07590,size.width*17.20673,size.height*21.00987);
+    
+
     path_0.moveTo(size.width * 0.1981132, size.height * 1.004219);
     path_0.cubicTo(
         size.width * 0.1884827,
@@ -530,7 +534,10 @@ class PlunagPainter extends CustomPainter {
 
     final path = createAnimatedPath(path_0, animationPercent);
 
-    Paint paint0Fill = Paint()..style = PaintingStyle.stroke;
+    Paint paint0Fill = Paint()..style = PaintingStyle.stroke
+    
+      ..strokeWidth = size.width * 0.06414886;
+    
     paint0Fill.color = const Color(0xff083C3B).withOpacity(1.0);
     canvas.drawPath(path, paint0Fill);
   }

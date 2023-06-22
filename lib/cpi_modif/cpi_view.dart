@@ -33,7 +33,7 @@ class _CPImodifState extends State<CPImodif> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey,
+      // backgroundColor: Colors.grey,
       appBar: AppBar(),
       body: Center(
         child: Column(
@@ -73,7 +73,9 @@ class _CPImodifState extends State<CPImodif> with TickerProviderStateMixin {
             // ),
             const Divider(),
             CustomPaint(
-              size: const Size(210.448, 235.397),
+              size: Size(50, (50 * 1.1184834123222749).toDouble()),
+
+              // size: const Size(210, 235),
               painter: DrawXDu(_controller),
             ),
             // CustomPaint(
