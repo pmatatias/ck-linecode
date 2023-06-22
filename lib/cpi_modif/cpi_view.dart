@@ -1,6 +1,7 @@
-
 import 'package:flutter/material.dart';
-/// create loading like gmail
+
+import 'cpi_manual.dart';
+
 class CPImodif extends StatefulWidget {
   const CPImodif({super.key});
 
@@ -8,15 +9,26 @@ class CPImodif extends StatefulWidget {
   State<CPImodif> createState() => _CPImodifState();
 }
 
-class _CPImodifState extends State<CPImodif> {
+class _CPImodifState extends State<CPImodif> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
       backgroundColor: Colors.grey,
       body: Center(
-        child: CircularProgressIndicator.adaptive(
-          backgroundColor: Colors.white,
-          strokeWidth: 5,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            CircularProgressIndicator.adaptive(
+              backgroundColor: Colors.white,
+              strokeWidth: 5,
+            ),
+            Divider(),
+            CircularProgressIndicator(),
+            Divider(),
+            CustomProgressIndicator(),
+            Divider(),
+          ],
         ),
       ),
     );
