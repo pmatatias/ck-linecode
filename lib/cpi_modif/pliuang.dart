@@ -1,24 +1,16 @@
+import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
-import 'package:flutter/material.dart';
-const double _kMinCircularProgressIndicatorSize = 36.0;
-const int _kIndeterminateCircularDuration = 1333 * 2222;
-int kPath = _kIndeterminateCircularDuration ~/ 1333;
-int kRotae = _kIndeterminateCircularDuration ~/ 2222;
+import 'cpi_manual.dart';
 
-
-class CustomProgressIndicator extends StatefulWidget {
-  const CustomProgressIndicator({super.key});
+class Plua extends StatefulWidget {
+  const Plua({super.key});
 
   @override
-  State<CustomProgressIndicator> createState() =>
-      _CustomProgressIndicatorState();
+  State<Plua> createState() => _PluaState();
 }
 
-
-
-class _CustomProgressIndicatorState extends State<CustomProgressIndicator>
-    with SingleTickerProviderStateMixin {
+class _PluaState extends State<Plua> with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   final Animatable<double> _strokeHeadTween = CurveTween(
     curve: const Interval(0.0, 0.5, curve: Curves.fastOutSlowIn),
@@ -37,9 +29,8 @@ class _CustomProgressIndicatorState extends State<CustomProgressIndicator>
   void initState() {
     super.initState();
     _controller =
-        AnimationController(vsync: this, duration:  Duration(seconds: kPath))
+        AnimationController(vsync: this, duration: Duration(seconds: kPath))
           ..repeat();
-
   }
 
   @override
@@ -98,7 +89,7 @@ class ProgressPainter extends CustomPainter {
     // canvas.drawCircle(center, radius, paint);
 
     final progressPaint = Paint()
-      ..color = Colors.red
+      ..color = Colors.indigo
       ..strokeWidth = 5.0
       ..strokeCap = StrokeCap.round
       ..style = PaintingStyle.stroke;
