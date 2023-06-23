@@ -1,10 +1,11 @@
-import 'package:ck_linecode/cpi_modif/pathmetric_draw.dart';
 import 'package:flutter/material.dart';
 
-class DrawXDu extends CustomPainter {
+import 'calculate_metric.dart';
+
+class PaintPluang extends CustomPainter {
   final Animation<double> _animation;
 
-  DrawXDu(this._animation) : super(repaint: _animation);
+  PaintPluang(this._animation) : super(repaint: _animation);
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -279,25 +280,14 @@ class DrawXDu extends CustomPainter {
 
     final animationPercent = _animation.value;
 
-    final path = createAnimatedPath(path_0, animationPercent);
-
-    // Paint paint0Stroke = Paint()
-    //   ..style = PaintingStyle.stroke
-    //   ..strokeWidth = size.width * 0.06398104;
-    // paint0Stroke.color = const Color(0xff707070).withOpacity(1.0);
-    // paint0Stroke.strokeCap = StrokeCap.round;
-    // paint0Stroke.strokeJoin = StrokeJoin.round;
-    // canvas.drawPath(path_0, paint0Stroke);
+    final path = drawAnimatedPath(path_0, 0.12);
 
     Paint paint0Fill = Paint()
       ..style = PaintingStyle.stroke
       ..strokeWidth = size.width * 0.06398104
-      ..strokeCap = StrokeCap.round
-      ;
+      ..strokeCap = StrokeCap.round;
     paint0Fill.color = const Color(0xff000000).withOpacity(1.0);
     canvas.drawPath(path, paint0Fill);
-
-    // canvas.drawPath(path, paint0Stroke);
   }
 
   @override

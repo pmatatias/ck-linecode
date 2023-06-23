@@ -1,4 +1,4 @@
-import 'package:ck_linecode/cpi_modif/cpi_view.dart';
+import 'package:ck_linecode/pluang/pluang_view.dart';
 import 'package:ck_linecode/provider_shop/pstate.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         theme: ThemeData(primarySwatch: Colors.amber),
-        home: const CPImodif(),
+        home: const PluangLoader(),
       ),
     );
   }
