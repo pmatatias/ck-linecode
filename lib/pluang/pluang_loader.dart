@@ -278,9 +278,18 @@ class PaintPluang extends CustomPainter {
         size.height * 0.4035136);
     path_0.close();
 
-    final animationPercent = _animation.value;
+    // final animationPercent = _animation.value;
+    final tailtem = _strokeTailTween.evaluate(_animation);
+    // final tailPercent = (tailtem +
+    //         _rotationTween.evaluate(_animation) +
+    //         _offsetTween.evaluate(_animation)) /
+    //     2.7;
+    // final headPercent = max((_strokeHeadTween.evaluate(_animation)), _epsilon);
+    const tailPercent = 5.3;
+    const headPercent = 1.7;
 
-    final path = drawAnimatedPath(path_0, 0.12);
+    final path = drawAnimatedPath(path_0,
+        headpercent: _animation.value, tailpercent: _animation.value);
 
     Paint paint0Fill = Paint()
       ..style = PaintingStyle.stroke
@@ -295,3 +304,22 @@ class PaintPluang extends CustomPainter {
     return true;
   }
 }
+
+const double _epsilon = .011;
+
+const int _kIndeterminateCircularDuration = 1333 * 2222;
+int kPath = _kIndeterminateCircularDuration ~/ 1333;
+int kRotae = _kIndeterminateCircularDuration ~/ 2222;
+
+final Animatable<double> _strokeHeadTween = CurveTween(
+  curve: const Interval(0.0, 0.5, curve: Curves.fastOutSlowIn),
+).chain(CurveTween(
+  curve: SawTooth(kPath),
+));
+final Animatable<double> _strokeTailTween = CurveTween(
+  curve: const Interval(0.5, 1.0, curve: Curves.fastOutSlowIn),
+).chain(CurveTween(
+  curve: SawTooth(kPath),
+));
+final Animatable<double> _offsetTween = CurveTween(curve: SawTooth(kPath));
+final Animatable<double> _rotationTween = CurveTween(curve: SawTooth(kRotae));

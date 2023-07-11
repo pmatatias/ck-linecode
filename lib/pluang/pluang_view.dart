@@ -16,7 +16,7 @@ class _PluangLoaderState extends State<PluangLoader>
   void initState() {
     super.initState();
     _controller = AnimationController(
-      duration: const Duration(seconds: 10),
+      duration: const Duration(seconds: 20000),
       vsync: this,
     )..repeat();
   }
@@ -31,8 +31,14 @@ class _PluangLoaderState extends State<PluangLoader>
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: CustomPaint(
-            size: const Size(210, 235), painter: PaintPluang(_controller)),
+        child: Column(
+          children: [
+            CustomPaint(
+                size: const Size(210, 235), painter: PaintPluang(_controller)),
+            // const CustomProgressIndicator()
+            // const LinearProgressIndicator()
+          ],
+        ),
       ),
     );
   }

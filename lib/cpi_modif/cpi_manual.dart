@@ -1,11 +1,11 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
+
 const double _kMinCircularProgressIndicatorSize = 36.0;
 const int _kIndeterminateCircularDuration = 1333 * 2222;
 int kPath = _kIndeterminateCircularDuration ~/ 1333;
 int kRotae = _kIndeterminateCircularDuration ~/ 2222;
-
 
 class CustomProgressIndicator extends StatefulWidget {
   const CustomProgressIndicator({super.key});
@@ -14,8 +14,6 @@ class CustomProgressIndicator extends StatefulWidget {
   State<CustomProgressIndicator> createState() =>
       _CustomProgressIndicatorState();
 }
-
-
 
 class _CustomProgressIndicatorState extends State<CustomProgressIndicator>
     with SingleTickerProviderStateMixin {
@@ -37,9 +35,8 @@ class _CustomProgressIndicatorState extends State<CustomProgressIndicator>
   void initState() {
     super.initState();
     _controller =
-        AnimationController(vsync: this, duration:  Duration(seconds: kPath))
+        AnimationController(vsync: this, duration: Duration(seconds: kPath))
           ..repeat();
-
   }
 
   @override
