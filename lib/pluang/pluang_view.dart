@@ -43,3 +43,6 @@ class _PluangLoaderState extends State<PluangLoader>
     );
   }
 }
+
+String bs =
+    "iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAABHNCSVQICAgIfAhkiAAAIABJREFUeJztnXmYHVWd9z/nVN2lt3R30p3urIQkhCSQEMISdjCIEEZREYbNDcdxXubl9cGRxdFBZdwQlRl1RHnAEXVEUV9FUXYxISQhZCH7TrbO2vt6b997q855/zhVdW9337r3dgewn+fll6e607fqVJ3z/Z3z209deIfeof+fSfytO1CEBCfeR+0–";
