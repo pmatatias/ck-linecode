@@ -1,8 +1,8 @@
-import 'package:ck_linecode/pluang/pluang_view.dart';
 import 'package:ck_linecode/provider_shop/pstate.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'home.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,8 +17,8 @@ class MyApp extends StatelessWidget {
       builder: (context, child) => MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
-        theme: ThemeData(primarySwatch: Colors.amber),
-        home: const PluangLoader(),
+        theme: ThemeData(primarySwatch: Colors.teal),
+        home: const MyHome(),
       ),
     );
   }
