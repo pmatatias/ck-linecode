@@ -21,7 +21,7 @@ class MyHome extends StatelessWidget {
       body: ListView(
         children: const [
           RowTile(title: "Dynamic Header", page: DynamicAppbar()),
-          RowTile(title: "Custom Table ", page: MyTable()),
+          RowTile(title: "Custom Table", page: MyTable()),
           RowTile(title: "Widget Coordinate", page: DartExtension4()),
           RowTile(title: "Update List", page: ListUpdateDemo()),
           RowTile(title: "Attach File WebView/Iframe", page: PreviewWebpage()),

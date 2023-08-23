@@ -22,6 +22,7 @@ dependencies:
   image: ^4.0.17
   path_provider: ^2.0.15
   intl: ^0.18.1
+  http: ^1.1.0
   # path_provider_windows: ^2.1.6
 
 dev_dependencies:
