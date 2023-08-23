@@ -195,7 +195,7 @@
 
 import 'package:flutter/material.dart';
 
-class CenterDot extends StatelessWidget {
+class CenterDot extends StatelessWidget { 
   CenterDot({super.key, required this.ctrl})
       : xscale = Tween<double>(
           begin: 15.0,

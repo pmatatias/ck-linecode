@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 
 class DartExtension4 extends StatefulWidget {
-  const DartExtension4({
-    super.key,
-  });
+  const DartExtension4({super.key});
 
   @override
   State<DartExtension4> createState() => _DartExtension4State();
@@ -28,8 +26,6 @@ class _DartExtension4State extends State<DartExtension4> {
       title: const Text("Dart Extension 4"),
     );
     return GestureDetector(
-      
-      
       // onTapDown: (events) {
       //   // print("events: ${events.globalPosition}");
 
@@ -41,7 +37,7 @@ class _DartExtension4State extends State<DartExtension4> {
       // onTapUp: (details) {
       //   _rect = containerKey.globalPaintBounds;
       //   setState(() {
-          
+
       //   });
       // },
       child: Scaffold(
