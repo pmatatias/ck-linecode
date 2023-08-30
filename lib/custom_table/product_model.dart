@@ -1,9 +1,18 @@
 import 'dart:convert';
+import 'package:http/http.dart' as http;
 
 ///https://dummyjson.com/products
 ///
 
-//
+Future<ProductModel> fetchData() async {
+  try {
+    final resp = await http.get(Uri.parse("https://dummyjson.com/products"));
+    return ProductModel.fromRawJson(resp.body);
+  } catch (e) {
+    rethrow;
+  }
+}
+
 class ProductModel {
   final List<Product> products;
   final int total;

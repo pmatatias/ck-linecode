@@ -45,13 +45,13 @@ class RowTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: Colors.blueGrey.shade200,
+      color: Colors.blueGrey.shade50,
       child: ListTile(
         onTap: () => Navigator.push(
             context, MaterialPageRoute(builder: (context) => page)),
         title: Text(title),
         trailing: const Icon(Icons.chevron_right_sharp),
-        visualDensity: const VisualDensity(vertical: -2),
+        visualDensity: const VisualDensity(vertical: -1),
       ),
     );
   }
