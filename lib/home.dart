@@ -1,6 +1,7 @@
 import 'package:ck_linecode/custom_table/my_table.dart';
 import 'package:ck_linecode/parent_child_method/parent_widget.dart';
 import 'package:ck_linecode/reactjs_card/dashboard_view.dart';
+import 'package:ck_linecode/validating/valid_page.dart';
 import 'package:flutter/material.dart';
 
 import 'animea/view_voo.dart';
@@ -22,6 +23,7 @@ class MyHome extends StatelessWidget {
         children: const [
           RowTile(title: "Dynamic Header", page: DynamicAppbar()),
           RowTile(title: "Custom Table", page: TableView()),
+          RowTile(title: "Validate Everything", page: ValidatingPage()),
           RowTile(title: "Widget Coordinate", page: DartExtension4()),
           RowTile(title: "Update List", page: ListUpdateDemo()),
           RowTile(title: "Attach File WebView/Iframe", page: PreviewWebpage()),
