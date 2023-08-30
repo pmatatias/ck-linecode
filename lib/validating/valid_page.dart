@@ -1,4 +1,3 @@
-import 'package:ck_linecode/medium_notification/avatar_widget.dart';
 import 'package:ck_linecode/validating/mymodel.dart';
 import 'package:flutter/material.dart';
 
@@ -125,6 +124,7 @@ class _ValidatingPageState extends State<ValidatingPage> {
                         style: const TextStyle(color: Colors.red),
                       ),
                     const Divider(),
+                    
                     ...players.map((e) => PlayerInfo(data: e)).toList(),
                   ],
                 ),
@@ -144,15 +144,39 @@ class PlayerInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        CircleAvatar(child: Text(data.id.toString())),
-        Slider(
-          value: data.power.toDouble(),
-          onChanged: (val) {},
-          max: 100,
-        )
-      ],
+    return Card(
+      margin: const EdgeInsets.only(bottom: 20),
+      child: Row(
+        children: [
+          Column(
+            children: [
+              Text(data.name),
+              CircleAvatar(child: Text(data.id.toString())),
+            ],
+          ),
+          const SizedBox(width: 50),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text("Age"),
+                Slider(
+                  value: data.power.toDouble(),
+                  onChanged: (val) {},
+                  max: 100,
+                ),
+                const SizedBox(height: 12),
+                const Text("Power"),
+                Slider(
+                  value: data.power.toDouble(),
+                  onChanged: (val) {},
+                  max: 100,
+                )
+              ],
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
