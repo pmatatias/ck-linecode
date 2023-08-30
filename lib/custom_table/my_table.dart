@@ -64,14 +64,19 @@ class TitleTable extends StatelessWidget {
     return const Card(
       child: Row(
         children: [
-          SizedBox(width: 20, child: Celll(child: Text("No"))),
+          SizedBox(width: 30, child: Celll()),
           Expanded(flex: 3, child: Celll(child: Text("Title"))),
           Expanded(flex: 5, child: Celll(child: Text("Description"))),
           Expanded(flex: 1, child: Celll(child: Text("Price"))),
           Expanded(flex: 1, child: Celll(child: Text("Rating"))),
           Expanded(flex: 1, child: Celll(child: Text("Stock"))),
           Expanded(flex: 2, child: Celll(child: Text("Category"))),
-          Expanded(flex: 3, child: Celll(child: Text("Thumbnail"))),
+          Expanded(
+              flex: 3,
+              child: Celll(
+                showBorder: false,
+                child: Text("Thumbnail"),
+              )),
         ],
       ),
     );
@@ -84,19 +89,23 @@ class RowTable extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return const Text("sss");
   }
 }
 
 class Celll extends StatelessWidget {
   const Celll(
       {super.key,
-      required this.child,
+      this.child,
+      this.value,
       this.color = Colors.grey,
       this.padCon,
-      this.showBorder = true});
-  final Widget child;
+      this.showBorder = true})
+      : assert(
+            !(child != null && value != null)); // throw if both param provided
+  final Widget? child;
   final Color color;
+  final String? value;
   final bool showBorder;
   final EdgeInsetsGeometry? padCon;
   @override
@@ -107,8 +116,8 @@ class Celll extends StatelessWidget {
           ? BoxDecoration(
               border: Border(right: BorderSide(color: color)),
             )
-          : null,
-      child: child,
+          : null, 
+      child: value != null ? Text('$value') : child,
     );
   }
 }

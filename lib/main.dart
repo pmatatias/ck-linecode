@@ -15,9 +15,10 @@ class MyApp extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (context) => PState(),
       builder: (context, child) => MaterialApp(
+        themeMode: ThemeMode.dark,
         debugShowCheckedModeBanner: false,
-        title: 'Flutter Demo',
-        theme: ThemeData(primarySwatch: Colors.teal),
+        title: 'CK-Lines Code',
+        theme: ThemeData(primarySwatch: Colors.indigo),
         home: const MyHome(),
       ),
     );
