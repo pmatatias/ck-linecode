@@ -47,8 +47,10 @@ class BuildTable extends StatelessWidget {
         Expanded(
           child: ListView.builder(
             itemCount: data.products.length,
-            itemBuilder: (context, index) =>
-                RowTable(product: data.products[index]),
+            itemBuilder: (context, index) => RowTable(
+              product: data.products[index],
+              idx: index,
+            ),
           ),
         )
       ],
@@ -62,21 +64,19 @@ class TitleTable extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Card(
+      color: Colors.blueGrey,
       child: Row(
         children: [
-          SizedBox(width: 30, child: Celll()),
-          Expanded(flex: 3, child: Celll(child: Text("Title"))),
-          Expanded(flex: 5, child: Celll(child: Text("Description"))),
-          Expanded(flex: 1, child: Celll(child: Text("Price"))),
-          Expanded(flex: 1, child: Celll(child: Text("Rating"))),
-          Expanded(flex: 1, child: Celll(child: Text("Stock"))),
-          Expanded(flex: 2, child: Celll(child: Text("Category"))),
+          SizedBox(width: 40, child: Celll(value: "No", isHeader: true)),
+          Expanded(flex: 2, child: Celll(value: "Title", isHeader: true)),
+          Expanded(flex: 2, child: Celll(value: "Category", isHeader: true)),
+          Expanded(flex: 1, child: Celll(value: "Price", isHeader: true)),
+          Expanded(flex: 1, child: Celll(value: "Rating", isHeader: true)),
+          Expanded(flex: 1, child: Celll(value: "Stock", isHeader: true)),
           Expanded(
-              flex: 3,
+              flex: 5,
               child: Celll(
-                showBorder: false,
-                child: Text("Thumbnail"),
-              )),
+                  value: "Description", isHeader: true, showBorder: false)),
         ],
       ),
     );
@@ -84,12 +84,30 @@ class TitleTable extends StatelessWidget {
 }
 
 class RowTable extends StatelessWidget {
-  const RowTable({super.key, required this.product});
+  const RowTable({super.key, required this.product, required this.idx});
   final Product product;
+  final int idx;
 
   @override
   Widget build(BuildContext context) {
-    return const Text("sss");
+    return Card(
+      child: Row(
+        children: [
+          SizedBox(width: 40, child: Celll(value: idx + 1)),
+          Expanded(flex: 2, child: Celll(value: product.title)),
+          Expanded(flex: 2, child: Celll(value: product.category)),
+          Expanded(flex: 1, child: Celll(value: '\$ ${product.price}')),
+          Expanded(flex: 1, child: Celll(value: product.rating)),
+          Expanded(flex: 1, child: Celll(value: product.stock)),
+          Expanded(
+              flex: 5,
+              child: Celll(
+                  value: product.description,
+                  txtAlign: TextAlign.left,
+                  showBorder: false)),
+        ],
+      ),
+    );
   }
 }
 
@@ -100,24 +118,36 @@ class Celll extends StatelessWidget {
       this.value,
       this.color = Colors.grey,
       this.padCon,
+      this.isHeader = false,
+      this.txtAlign = TextAlign.center,
       this.showBorder = true})
       : assert(
             !(child != null && value != null)); // throw if both param provided
   final Widget? child;
   final Color color;
-  final String? value;
+  final dynamic value;
   final bool showBorder;
+  final TextAlign txtAlign;
+  final bool isHeader;
   final EdgeInsetsGeometry? padCon;
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: padCon ?? const EdgeInsets.symmetric(vertical: 8, horizontal: 4),
+      padding:
+          padCon ?? const EdgeInsets.symmetric(vertical: 12, horizontal: 4),
       decoration: showBorder
           ? BoxDecoration(
               border: Border(right: BorderSide(color: color)),
             )
-          : null, 
-      child: value != null ? Text('$value') : child,
+          : null,
+      child: value != null
+          ? Text('$value',
+              textAlign: txtAlign,
+              style: isHeader
+                  ? const TextStyle(
+                      fontWeight: FontWeight.w500, color: Colors.white)
+                  : null)
+          : child,
     );
   }
 }
