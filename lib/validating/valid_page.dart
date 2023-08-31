@@ -179,7 +179,7 @@ class PlayerInfo extends StatelessWidget {
                 Slider(
                   value: data.power.toDouble(),
                   onChanged: (val) {},
-                  max: 100,
+                  max: 100,     
                 )
               ],
             ),
