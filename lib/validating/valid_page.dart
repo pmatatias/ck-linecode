@@ -124,7 +124,6 @@ class _ValidatingPageState extends State<ValidatingPage> {
                         style: const TextStyle(color: Colors.red),
                       ),
                     const Divider(),
-                    
                     ...players.map((e) => PlayerInfo(data: e)).toList(),
                   ],
                 ),
@@ -159,9 +158,9 @@ class PlayerInfo extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text("Age"),
+                const Text("Ability"),
                 Slider(
-                  value: data.power.toDouble(),
+                  value: data.ability.toDouble(),
                   onChanged: (val) {},
                   max: 100,
                 ),
@@ -185,5 +184,4 @@ List players = [
   const Player(1, "Player 1", 3, 20),
   const Player(2, "Player 2", 5, 40),
   const Player(3, "Player 3", 4, 30),
-  const Player(4, "Player 4", 8, 10),
 ];

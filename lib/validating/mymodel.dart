@@ -1,15 +1,15 @@
 class Player {
   final int id;
   final String name;
-  final int age;
+  final int ability;
   final int power;
 
-  const Player(this.id, this.name, this.power, this.age);
+  const Player(this.id, this.name, this.power, this.ability);
   String? validMessage() {
     // example condition
-    if (age < 15 && power > 30) {
+    if (ability < 15 && power > 30) {
       return "Too powerfull!! are you cheating?";
-    } else if (age > 15 && power > 10) {
+    } else if (ability > 15 && power > 10) {
       return "LOL, too weak!! do you want to lose?";
     }
     return null;
@@ -22,5 +22,5 @@ class Player {
     int? power,
   }) =>
       Player(id ?? this.id, name ?? this.name, power ?? this.power,
-          age ?? this.age);
+          age ?? ability);
 }
