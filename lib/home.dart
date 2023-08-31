@@ -1,6 +1,11 @@
 import 'package:ck_linecode/custom_table/my_table.dart';
+import 'package:ck_linecode/custom_table/my_table.dart';
 import 'package:ck_linecode/parent_child_method/parent_widget.dart';
+import 'package:ck_linecode/path_animate_bing/explorebing.dart';
+import 'package:ck_linecode/path_animate_bing/four.dart';
+import 'package:ck_linecode/path_animate_bing/three.dart';
 import 'package:ck_linecode/reactjs_card/dashboard_view.dart';
+import 'package:ck_linecode/validating/valid_page.dart';
 import 'package:flutter/material.dart';
 
 import 'animea/view_voo.dart';
@@ -21,7 +26,9 @@ class MyHome extends StatelessWidget {
       body: ListView(
         children: const [
           RowTile(title: "Dynamic Header", page: DynamicAppbar()),
-          RowTile(title: "Custom Table", page: MyTable()),
+          RowTile(title: "Custom Table", page: TableView()),
+          RowTile(title: "Validate Everything", page: ValidatingPage()),
+          RowTile(title: "Experiment with bing chat", page: FourthTry()),
           RowTile(title: "Widget Coordinate", page: DartExtension4()),
           RowTile(title: "Update List", page: ListUpdateDemo()),
           RowTile(title: "Attach File WebView/Iframe", page: PreviewWebpage()),
@@ -45,13 +52,13 @@ class RowTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: Colors.blueGrey.shade200,
+      color: Colors.blueGrey.shade50,
       child: ListTile(
         onTap: () => Navigator.push(
             context, MaterialPageRoute(builder: (context) => page)),
         title: Text(title),
         trailing: const Icon(Icons.chevron_right_sharp),
-        visualDensity: const VisualDensity(vertical: -2),
+        visualDensity: const VisualDensity(vertical: -1),
       ),
     );
   }
