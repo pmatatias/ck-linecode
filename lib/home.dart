@@ -1,9 +1,6 @@
 import 'package:ck_linecode/custom_table/my_table.dart';
-import 'package:ck_linecode/custom_table/my_table.dart';
 import 'package:ck_linecode/parent_child_method/parent_widget.dart';
-import 'package:ck_linecode/path_animate_bing/explorebing.dart';
 import 'package:ck_linecode/path_animate_bing/four.dart';
-import 'package:ck_linecode/path_animate_bing/three.dart';
 import 'package:ck_linecode/reactjs_card/dashboard_view.dart';
 import 'package:ck_linecode/validating/valid_page.dart';
 import 'package:flutter/material.dart';
