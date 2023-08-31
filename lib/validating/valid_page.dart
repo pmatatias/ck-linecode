@@ -124,7 +124,16 @@ class _ValidatingPageState extends State<ValidatingPage> {
                         style: const TextStyle(color: Colors.red),
                       ),
                     const Divider(),
-                    ...players.map((e) => PlayerInfo(data: e)).toList(),
+                    ...players
+                        .map(
+                          (e) => PlayerInfo(
+                            data: e,
+                            onChanged: (val) {
+                              e = val;
+                            },
+                          ),
+                        )
+                        .toList(),
                   ],
                 ),
               ),
@@ -138,8 +147,9 @@ class _ValidatingPageState extends State<ValidatingPage> {
 }
 
 class PlayerInfo extends StatelessWidget {
-  const PlayerInfo({super.key, required this.data});
+  const PlayerInfo({super.key, required this.data, required this.onChanged});
   final Player data;
+  final ValueChanged<Player> onChanged;
 
   @override
   Widget build(BuildContext context) {
