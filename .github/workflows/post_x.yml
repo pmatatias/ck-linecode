@@ -1,0 +1,17 @@
+name: Post to X
+on: 
+  [push]
+#   push:
+#     branches:
+#     - main
+jobs:
+  tweet:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: dart-actions/tweet@v1.0.0
+        with:
+          text: "CK lines repo!"
+          consumer-key: ${{ secrets.TWITTER_CONSUMER_KEY }}
+          consumer-secret: ${{ secrets.TWITTER_CONSUMER_SECRET }}
+          access-token: ${{ secrets.TWITTER_ACCESS_TOKEN }}
+          access-token-secret: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
