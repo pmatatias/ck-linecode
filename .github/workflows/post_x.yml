@@ -11,4 +11,6 @@ jobs:
       - uses: dart-actions/tweet@v1.0.1
         with:
           text: "CK Line repo updated!"
+          access-token: ${{ secrets.TWITTER_ACCESS_TOKEN }}
+          access-token-secret: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
           bearer-token: ${{ secrets.TWITTER_BEARER_TOKEN }}
