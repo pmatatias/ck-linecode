@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: ethomson/send-tweet-action@v1
         with:
-          text: "CK Line repo updated!"
+          status: "CK Line repo updated!"
           consumer-key: ${{ secrets.TWITTER_CONSUMER_API_KEY }}
           consumer-secret: ${{ secrets.TWITTER_CONSUMER_API_SECRET }}
           access-token: ${{ secrets.TWITTER_ACCESS_TOKEN }}
