@@ -4,16 +4,40 @@ on: [push]
 #     branches:
 #     - main
 jobs:
-  tweet:
+  preview:
+    name: Preview
     runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
     steps:
-      - uses: devigned/go-twitter-action@v1
-        with:
-          message: "CK line updated!"
-          apiKey: ${{ secrets.TWITTER_CONSUMER_KEY }}
-          apiKeySecret: ${{ secrets.TWITTER_CONSUMER_SECRET }}
-          accessToken: ${{ secrets.TWITTER_ACCESS_TOKEN }}
-          accessTokenSecret: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
+      - uses: twitter-together/action@v3
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  tweet:
+    name: Tweet
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    steps:
+      - name: checkout main
+        uses: actions/checkout@v3
+      - name: Tweet
+        uses: twitter-together/action@v3
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TWITTER_ACCESS_TOKEN: ${{ secrets.TWITTER_ACCESS_TOKEN }}
+          TWITTER_ACCESS_TOKEN_SECRET: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
+          TWITTER_API_KEY: ${{ secrets.TWITTER_CONSUMER_KEY }}
+          TWITTER_API_SECRET_KEY: ${{ secrets.TWITTER_CONSUMER_SECRET }}
+# jobs:
+#   tweet:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: devigned/go-twitter-action@v1
+#         with:
+#           message: "CK line updated!"
+#           apiKey: ${{ secrets.TWITTER_CONSUMER_KEY }}
+#           apiKeySecret: ${{ secrets.TWITTER_CONSUMER_SECRET }}
+#           accessToken: ${{ secrets.TWITTER_ACCESS_TOKEN }}
+#           accessTokenSecret: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
       # - uses: dart-actions/tweet@v1.0.0
       #   with:
       #     text: "CK Line repo updated!"
