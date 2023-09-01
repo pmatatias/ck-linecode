@@ -10,8 +10,5 @@ jobs:
     steps:
       - uses: dart-actions/tweet@v1.0.0
         with:
-          text: "CK lines repo!"
-          consumer-key: ${{ secrets.TWITTER_CONSUMER_KEY }}
-          consumer-secret: ${{ secrets.TWITTER_CONSUMER_SECRET }}
-          access-token: ${{ secrets.TWITTER_ACCESS_TOKEN }}
-          access-token-secret: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
+          text: "CK Line repo updated!"
+          bearer-token: ${{ secrets.TWITTER_BEARER_TOKEN }}
