@@ -3,6 +3,7 @@ import 'package:ck_linecode/parent_child_method/parent_widget.dart';
 import 'package:ck_linecode/path_animate_bing/four.dart';
 import 'package:ck_linecode/reactjs_card/dashboard_view.dart';
 import 'package:ck_linecode/validating/valid_page.dart';
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 
 import 'animea/view_voo.dart';

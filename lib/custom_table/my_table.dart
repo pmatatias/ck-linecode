@@ -12,7 +12,7 @@ class _TableViewState extends State<TableView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Custom Table")),
+      // appBar: AppBar(title: const Text("Custom Table")),
       body: FutureBuilder(
           future: fetchData(),
           builder: (context, snapshot) {
