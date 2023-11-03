@@ -1,4 +1,5 @@
 import 'package:ck_linecode/custom_table/product_model.dart';
+import 'package:ck_linecode/custom_table/search_container.dart';
 import 'package:flutter/material.dart';
 
 class TableView extends StatefulWidget {
@@ -9,51 +10,62 @@ class TableView extends StatefulWidget {
 }
 
 class _TableViewState extends State<TableView> {
+  final getListProduct = fetchData();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       // appBar: AppBar(title: const Text("Custom Table")),
-      body: FutureBuilder(
-          future: fetchData(),
-          builder: (context, snapshot) {
-            if (snapshot.hasError) {
-              return Center(
-                child: Text(
-                  snapshot.error.toString(),
-                  style: const TextStyle(color: Colors.red),
-                ),
-              );
-            } else if (snapshot.hasData) {
-              return BuildTable(data: snapshot.data!);
-            }
-            return const Center(child: CircularProgressIndicator());
-          }),
-    );
-  }
-}
-
-class BuildTable extends StatelessWidget {
-  const BuildTable({super.key, required this.data});
-  final ProductModel data;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: [
-        const Text("Dummy data table"),
-        const TitleTable(),
-        Expanded(
-          child: ListView.builder(
-            itemCount: data.products.length,
-            itemBuilder: (context, index) => RowTable(
-              product: data.products[index],
-              idx: index,
-            ),
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(6, 12, 6, 2),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              const Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "⦿  Table Products",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                    ),
+                  ),
+                  Spacer(),
+                  Expanded(child: SearchInputContainer()),
+                ],
+              ),
+              const SizedBox(height: 8),
+              const TitleTable(),
+              Expanded(
+                child: FutureBuilder(
+                    future: getListProduct,
+                    builder: (context, snapshot) {
+                      if (snapshot.hasError) {
+                        return Center(
+                          child: Text(
+                            snapshot.error.toString(),
+                            style: const TextStyle(color: Colors.red),
+                          ),
+                        );
+                      } else if (snapshot.hasData) {
+                        final data = snapshot.data!;
+                        return ListView.builder(
+                          itemCount: data.products.length,
+                          itemBuilder: (context, index) => RowTable(
+                            product: data.products[index],
+                            idx: index,
+                          ),
+                        );
+                      }
+                      return const Center(child: CircularProgressIndicator());
+                    }),
+              ),
+            ],
           ),
-        )
-      ],
+        ),
+      ),
     );
   }
 }
@@ -63,21 +75,28 @@ class TitleTable extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Card(
-      color: Colors.blueGrey,
-      child: Row(
-        children: [
-          SizedBox(width: 40, child: Celll(value: "No", isHeader: true)),
-          Expanded(flex: 2, child: Celll(value: "Title", isHeader: true)),
-          Expanded(flex: 2, child: Celll(value: "Category", isHeader: true)),
-          Expanded(flex: 1, child: Celll(value: "Price", isHeader: true)),
-          Expanded(flex: 1, child: Celll(value: "Rating", isHeader: true)),
-          Expanded(flex: 1, child: Celll(value: "Stock", isHeader: true)),
-          Expanded(
-              flex: 5,
-              child: Celll(
-                  value: "Description", isHeader: true, showBorder: false)),
-        ],
+    return const Material(
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(4), topRight: Radius.circular(4))),
+      color: Colors.teal,
+      elevation: 3,
+      child: Padding(
+        padding: EdgeInsets.symmetric(vertical: 5.0),
+        child: Row(
+          children: [
+            SizedBox(width: 40, child: Celll(value: "No", isHeader: true)),
+            Expanded(flex: 2, child: Celll(value: "Title", isHeader: true)),
+            Expanded(flex: 2, child: Celll(value: "Category", isHeader: true)),
+            Expanded(flex: 1, child: Celll(value: "Price", isHeader: true)),
+            Expanded(flex: 1, child: Celll(value: "Rating", isHeader: true)),
+            Expanded(flex: 1, child: Celll(value: "Stock", isHeader: true)),
+            Expanded(
+                flex: 5,
+                child: Celll(
+                    value: "Description", isHeader: true, showBorder: false)),
+          ],
+        ),
       ),
     );
   }
@@ -90,22 +109,28 @@ class RowTable extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: Row(
-        children: [
-          SizedBox(width: 40, child: Celll(value: idx + 1)),
-          Expanded(flex: 2, child: Celll(value: product.title)),
-          Expanded(flex: 2, child: Celll(value: product.category)),
-          Expanded(flex: 1, child: Celll(value: '\$ ${product.price}')),
-          Expanded(flex: 1, child: Celll(value: product.rating)),
-          Expanded(flex: 1, child: Celll(value: product.stock)),
-          Expanded(
+    return Material(
+      color: idx % 2 == 0 ? Colors.blueGrey.shade100 : Colors.grey.shade200,
+      elevation: 3,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 2.0),
+        child: Row(
+          children: [
+            SizedBox(width: 40, child: Celll(value: idx + 1)),
+            Expanded(flex: 2, child: Celll(value: product.title)),
+            Expanded(flex: 2, child: Celll(value: product.category)),
+            Expanded(flex: 1, child: Celll(value: '\$ ${product.price}')),
+            Expanded(flex: 1, child: Celll(value: product.rating)),
+            Expanded(flex: 1, child: Celll(value: product.stock)),
+            Expanded(
               flex: 5,
               child: Celll(
                   value: product.description,
                   txtAlign: TextAlign.left,
-                  showBorder: false)),
-        ],
+                  showBorder: false),
+            ),
+          ],
+        ),
       ),
     );
   }
