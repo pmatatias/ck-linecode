@@ -3,8 +3,8 @@ import 'package:ck_linecode/flutter_notes/flitnots.dart';
 import 'package:ck_linecode/parent_child_method/parent_widget.dart';
 import 'package:ck_linecode/path_animate_bing/four.dart';
 import 'package:ck_linecode/reactjs_card/dashboard_view.dart';
+import 'package:ck_linecode/spinkitclone/lsit.dart';
 import 'package:ck_linecode/validating/valid_page.dart';
-import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 
 import 'animea/view_voo.dart';
@@ -26,6 +26,7 @@ class MyHome extends StatelessWidget {
         children: const [
           RowTile(title: "Flutter ntoes", page: FluttenotsView()),
           RowTile(title: "Dynamic Header", page: DynamicAppbar()),
+          RowTile(title: "Spinkit clone", page: Spinkitclone()),
           RowTile(title: "Custom Table", page: TableView()),
           RowTile(title: "Validate Everything", page: ValidatingPage()),
           RowTile(title: "Experiment with bing chat", page: FourthTry()),
