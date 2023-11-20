@@ -1,5 +1,6 @@
 import 'package:ck_linecode/custom_table/my_table.dart';
 import 'package:ck_linecode/flutter_notes/flitnots.dart';
+import 'package:ck_linecode/gmaps_webview/pick_location_form.dart';
 import 'package:ck_linecode/parent_child_method/parent_widget.dart';
 import 'package:ck_linecode/path_animate_bing/four.dart';
 import 'package:ck_linecode/reactjs_card/dashboard_view.dart';
@@ -25,6 +26,7 @@ class MyHome extends StatelessWidget {
       body: ListView(
         children: const [
           RowTile(title: "Flutter ntoes", page: FluttenotsView()),
+          RowTile(title: "Form Location Gmaps", page: FormLocation()),
           RowTile(title: "Dynamic Header", page: DynamicAppbar()),
           RowTile(title: "Spinkit clone", page: Spinkitclone()),
           RowTile(title: "Custom Table", page: TableView()),
