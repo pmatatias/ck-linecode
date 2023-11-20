@@ -1,4 +1,5 @@
 import 'package:ck_linecode/custom_table/product_model.dart';
+import 'package:ck_linecode/dynamic_appbar/palette.dart';
 import 'package:flutter/material.dart';
 
 class TableView extends StatefulWidget {
@@ -13,21 +14,24 @@ class _TableViewState extends State<TableView> {
   Widget build(BuildContext context) {
     return Scaffold(
       // appBar: AppBar(title: const Text("Custom Table")),
-      body: FutureBuilder(
-          future: fetchData(),
-          builder: (context, snapshot) {
-            if (snapshot.hasError) {
-              return Center(
-                child: Text(
-                  snapshot.error.toString(),
-                  style: const TextStyle(color: Colors.red),
-                ),
-              );
-            } else if (snapshot.hasData) {
-              return BuildTable(data: snapshot.data!);
-            }
-            return const Center(child: CircularProgressIndicator());
-          }),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: FutureBuilder(
+            future: fetchData(),
+            builder: (context, snapshot) {
+              if (snapshot.hasError) {
+                return Center(
+                  child: Text(
+                    snapshot.error.toString(),
+                    style: const TextStyle(color: Colors.red),
+                  ),
+                );
+              } else if (snapshot.hasData) {
+                return BuildTable(data: snapshot.data!);
+              }
+              return const Center(child: CircularProgressIndicator());
+            }),
+      ),
     );
   }
 }
@@ -42,7 +46,11 @@ class BuildTable extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        const Text("Dummy data table"),
+        const Text(
+          "Dummy data table",
+          style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+        ),
+        const SizedBox(height: 12),
         const TitleTable(),
         Expanded(
           child: ListView.builder(
@@ -63,8 +71,11 @@ class TitleTable extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Card(
+    return const Material(
       color: Colors.blueGrey,
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(5), topRight: Radius.circular(5))),
       child: Row(
         children: [
           SizedBox(width: 40, child: Celll(value: "No", isHeader: true)),
@@ -90,22 +101,26 @@ class RowTable extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: Row(
-        children: [
-          SizedBox(width: 40, child: Celll(value: idx + 1)),
-          Expanded(flex: 2, child: Celll(value: product.title)),
-          Expanded(flex: 2, child: Celll(value: product.category)),
-          Expanded(flex: 1, child: Celll(value: '\$ ${product.price}')),
-          Expanded(flex: 1, child: Celll(value: product.rating)),
-          Expanded(flex: 1, child: Celll(value: product.stock)),
-          Expanded(
-              flex: 5,
-              child: Celll(
-                  value: product.description,
-                  txtAlign: TextAlign.left,
-                  showBorder: false)),
-        ],
+    return Material(
+      color: idx % 2 == 0 ? Palette.bg1 : Palette.bg2,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 4),
+        child: Row(
+          children: [
+            SizedBox(width: 40, child: Celll(value: idx + 1)),
+            Expanded(flex: 2, child: Celll(value: product.title)),
+            Expanded(flex: 2, child: Celll(value: product.category)),
+            Expanded(flex: 1, child: Celll(value: '\$ ${product.price}')),
+            Expanded(flex: 1, child: Celll(value: product.rating)),
+            Expanded(flex: 1, child: Celll(value: product.stock)),
+            Expanded(
+                flex: 5,
+                child: Celll(
+                    value: product.description,
+                    txtAlign: TextAlign.left,
+                    showBorder: false),),
+          ],
+        ),
       ),
     );
   }

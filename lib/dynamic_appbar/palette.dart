@@ -7,4 +7,6 @@ class Palette {
   static const myrtleGreen = Color(0xFF587B7F);
   static const eerieBlack = Color(0xFF1E2019);
   static const dogwoodRose = Color(0xFFC62E65);
+  static const Color bg2 = Color.fromARGB(255, 199, 199, 199);
+  static const Color bg1 = Color(0xFFF4F1F1);
 }
