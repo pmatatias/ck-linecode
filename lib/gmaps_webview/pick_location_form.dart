@@ -33,10 +33,12 @@ class FormLocation extends StatefulWidget {
 }
 
 class _FormLocationState extends State<FormLocation> {
-  final streetCtrl = TextEditingController();
+  final fullCtrl = TextEditingController();
   final cityCtrl = TextEditingController();
   final stateCtrl = TextEditingController();
   final postalCodeCtrl = TextEditingController();
+  final latCtrl = TextEditingController();
+  final lonCtrl = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,20 +57,23 @@ class _FormLocationState extends State<FormLocation> {
                       builder: (context) => const MapsWebviewScreen(),
                     )).then((value) {
                   if (value != null) {
-                    stateCtrl.text = value.name;
+                    fullCtrl.text = value.name;
                     cityCtrl.text = value.city;
                     stateCtrl.text = value.stateNpostalIndo.$1;
                     postalCodeCtrl.text = value.stateNpostalIndo.$2;
+
+                    latCtrl.text = value.latitude;
+                    lonCtrl.text = value.longitude;
                   }
                 });
               },
               icon: const Icon(Icons.pin_drop_sharp),
               label: const Text("Pick location")),
           const SizedBox(height: 10),
-          const Text("Street"),
+          const Text("Full Address"),
           const SizedBox(height: 5),
           TextField(
-            controller: streetCtrl,
+            controller: fullCtrl,
             minLines: 3,
             maxLines: null,
             decoration: kInputDecor,
@@ -96,6 +101,40 @@ class _FormLocationState extends State<FormLocation> {
             controller: postalCodeCtrl,
             maxLines: null,
             decoration: kInputDecor,
+          ),
+          const SizedBox(height: 20),
+          Row(
+            children: [
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text("Latitude"),
+                    const SizedBox(height: 5),
+                    TextField(
+                      controller: latCtrl,
+                      maxLines: null,
+                      decoration: kInputDecor,
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text("Longitude"),
+                    const SizedBox(height: 5),
+                    TextField(
+                      controller: lonCtrl,
+                      maxLines: null,
+                      decoration: kInputDecor,
+                    ),
+                  ],
+                ),
+              ),
+            ],
           ),
           const SizedBox(height: 20),
         ]),
