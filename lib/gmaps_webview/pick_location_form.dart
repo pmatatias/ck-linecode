@@ -2,22 +2,10 @@ import 'package:ck_linecode/gmaps_webview/map_webview.dart';
 import 'package:ck_linecode/gmaps_webview/place_info.dart';
 import 'package:flutter/material.dart';
 
-InputDecoration kInputDecor = const InputDecoration(
-    focusedBorder: OutlineInputBorder(
-      borderSide: BorderSide(color: Colors.green, width: 0.8),
-    ),
+const InputDecoration kInputDecor = InputDecoration(
     filled: true,
-    errorBorder: OutlineInputBorder(
-      borderSide: BorderSide(color: Colors.red, width: 0.8),
-    ),
     enabledBorder: OutlineInputBorder(
       borderSide: BorderSide(color: Colors.blue, width: 0.8),
-    ),
-    focusedErrorBorder: OutlineInputBorder(
-      borderSide: BorderSide(color: Colors.blueGrey, width: 0.8),
-    ),
-    disabledBorder: OutlineInputBorder(
-      borderSide: BorderSide(color: Colors.grey, width: 0.8),
     ),
     isCollapsed: true,
     contentPadding: EdgeInsets.symmetric(
@@ -43,7 +31,7 @@ class _FormLocationState extends State<FormLocation> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Title(color: Colors.white, child: const Text("Form name")),
+        title: Title(color: Colors.white, child: const Text("Form Location")),
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -61,7 +49,6 @@ class _FormLocationState extends State<FormLocation> {
                     cityCtrl.text = value.city;
                     stateCtrl.text = value.stateNpostalIndo.$1;
                     postalCodeCtrl.text = value.stateNpostalIndo.$2;
-
                     latCtrl.text = value.latitude;
                     lonCtrl.text = value.longitude;
                   }
