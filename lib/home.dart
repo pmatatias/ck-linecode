@@ -1,4 +1,5 @@
 import 'package:ck_linecode/custom_table/my_table.dart';
+import 'package:ck_linecode/custompain/prev.dart';
 import 'package:ck_linecode/flutter_notes/flitnots.dart';
 import 'package:ck_linecode/future_builder_exp/futur.dart';
 import 'package:ck_linecode/gmaps_webview/pick_location_form.dart';
@@ -10,7 +11,6 @@ import 'package:ck_linecode/validating/valid_page.dart';
 import 'package:flutter/material.dart';
 
 import 'animea/view_voo.dart';
-import 'custompain/myview.dart';
 import 'dart_extension_4/abs_coordinate_widget.dart';
 import 'dart_extension_5/demo.dart';
 import 'dynamic_appbar/dynamic_appbar.dart';
@@ -41,7 +41,7 @@ class MyHome extends StatelessWidget {
           RowTile(title: "Medium Notification Clone", page: NotifScreen()),
           RowTile(title: "Responsive Card Dashboard", page: DashboardView()),
           RowTile(title: "OVO Loading Clone", page: AnimeaScreen()),
-          RowTile(title: "Wave Animation", page: MyView()),
+          RowTile(title: "Wave Animation", page: ViewWabe()),
           RowTile(
               title: "Invoke Children Method From Parent",
               page: ParentWidget()),
