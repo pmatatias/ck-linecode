@@ -3,6 +3,8 @@ import 'package:ck_linecode/custompain/prev.dart';
 import 'package:ck_linecode/flutter_notes/flitnots.dart';
 import 'package:ck_linecode/future_builder_exp/futur.dart';
 import 'package:ck_linecode/gmaps_webview/pick_location_form.dart';
+import 'package:ck_linecode/navrail/navrail2.dart';
+import 'package:ck_linecode/navrail/navrail_example.dart';
 import 'package:ck_linecode/parent_child_method/parent_widget.dart';
 import 'package:ck_linecode/path_animate_bing/four.dart';
 import 'package:ck_linecode/reactjs_card/dashboard_view.dart';
@@ -26,6 +28,7 @@ class MyHome extends StatelessWidget {
       appBar: AppBar(title: const Text("100K Line Code")),
       body: ListView(
         children: const [
+          RowTile(title: "Nav Rail", page: NavRailExample()),
           RowTile(title: "Flutter ntoes", page: FluttenotsView()),
           RowTile(
               title: "Future Builder Explo", page: FutureBuilderExploSCreen()),
