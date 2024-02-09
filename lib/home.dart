@@ -1,9 +1,6 @@
 import 'package:ck_linecode/custom_table/my_table.dart';
-<<<<<<< HEAD
 import 'package:ck_linecode/dart_extension_7/sample7.dart';
-=======
 import 'package:ck_linecode/custompain/prev.dart';
->>>>>>> 491cabe0443d020137a86d3c18711525c561dcd8
 import 'package:ck_linecode/flutter_notes/flitnots.dart';
 import 'package:ck_linecode/future_builder_exp/futur.dart';
 import 'package:ck_linecode/gmaps_webview/pick_location_form.dart';
@@ -34,12 +31,9 @@ class MyHome extends StatelessWidget {
         children: const [
           RowTile(title: "Nav Rail", page: NavRailExample()),
           RowTile(title: "Flutter ntoes", page: FluttenotsView()),
-<<<<<<< HEAD
           RowTile(title: "Dart extension 7", page: ExtDartsample()),
-=======
           RowTile(
               title: "Future Builder Explo", page: FutureBuilderExploSCreen()),
->>>>>>> 491cabe0443d020137a86d3c18711525c561dcd8
           RowTile(title: "Form Location Gmaps", page: FormLocation()),
           RowTile(title: "Dynamic Header", page: DynamicAppbar()),
           RowTile(title: "Spinkit clone", page: Spinkitclone()),
