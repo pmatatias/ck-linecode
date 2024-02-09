@@ -53,7 +53,7 @@ class NotifScreen extends StatelessWidget {
               return RefreshIndicator(
                 onRefresh: loading,
                 child: ListView.separated(
-                  separatorBuilder:(context, idx)=> const SizedBox(height: 1),
+                  separatorBuilder: (context, idx) => const SizedBox(height: 1),
                   itemCount: notifData.length,
                   itemBuilder: (context, index) =>
                       NotifRow(data: notifData[index]),

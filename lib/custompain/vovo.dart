@@ -53,18 +53,24 @@ class Customparintsc extends StatelessWidget {
             left: 5,
             right: 5,
             bottom: 5,
-            child: CircleAvatar(
-              backgroundColor: Colors.transparent,
-              radius: sz / 2,
-              child: ClipOval(
-                child: Container(
-                  transform: Matrix4.translationValues(-val.value, 0, 0),
-                  alignment: Alignment.bottomLeft,
-                  child: UnconstrainedBox(
-                    child: CustomPaint(
-                      size: Size(sz * 1.85, (sz * 0.537).toDouble()),
-                      painter: RPSCustomPainter2(),
-                    ),
+            child: AvatarWithBorder(
+              borderColor: Colors.transparent,
+              borderWidth: 0,
+
+              // backgroundColor: Colors.transparent,
+              // width: sz / 2,
+              // decoration: const BoxDecoration(
+              //     shape: BoxShape.circle, color: Colors.transparent),
+              // radius: sz / 2,
+              child: Container(
+                transform: Matrix4.translationValues(-val.value, 0, 0),
+                alignment: Alignment.bottomLeft,
+                child: OverflowBox(
+                  alignment: Alignment.bottomCenter,
+                  maxWidth: sz * 2,
+                  child: CustomPaint(
+                    size: const Size(sz * 1.85, (sz * 0.537)),
+                    painter: RPSCustomPainter2(),
                   ),
                 ),
               ),
@@ -81,7 +87,9 @@ class Customparintsc extends StatelessWidget {
                 child: Container(
                   transform: Matrix4.translationValues(val.value, 0, 0),
                   alignment: Alignment.bottomLeft,
-                  child: UnconstrainedBox(
+                  child: OverflowBox(
+                    alignment: Alignment.bottomCenter,
+                    maxWidth: sz * 2,
                     child: CustomPaint(
                       size: Size(sz * 1.85, (sz * 0.537).toDouble()),
                       painter: RPSCustomPainter(),
@@ -116,5 +124,50 @@ class Customparintsc extends StatelessWidget {
       animation: controller,
       builder: _buildchilf,
     );
+  }
+}
+
+class AvatarWithBorder extends StatelessWidget {
+  final Widget child;
+  final Color borderColor;
+  final double borderWidth;
+
+  const AvatarWithBorder({
+    super.key,
+    required this.child,
+    required this.borderColor,
+    required this.borderWidth,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return ClipPath(
+      clipper: AvatarClipper(),
+      child: Container(
+        width: sz, // Adjust as needed
+        height: sz, // Adjust as needed
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          border: Border.all(color: borderColor, width: borderWidth),
+        ),
+        child: child,
+      ),
+    );
+  }
+}
+
+class AvatarClipper extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    Path path = Path();
+
+    path.addOval(Rect.fromCircle(
+        center: size.center(Offset.zero), radius: size.width / 2));
+    return path;
+  }
+
+  @override
+  bool shouldReclip(CustomClipper<Path> oldClipper) {
+    return false;
   }
 }

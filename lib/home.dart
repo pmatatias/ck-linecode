@@ -1,7 +1,14 @@
 import 'package:ck_linecode/custom_table/my_table.dart';
+<<<<<<< HEAD
 import 'package:ck_linecode/dart_extension_7/sample7.dart';
+=======
+import 'package:ck_linecode/custompain/prev.dart';
+>>>>>>> 491cabe0443d020137a86d3c18711525c561dcd8
 import 'package:ck_linecode/flutter_notes/flitnots.dart';
+import 'package:ck_linecode/future_builder_exp/futur.dart';
 import 'package:ck_linecode/gmaps_webview/pick_location_form.dart';
+import 'package:ck_linecode/navrail/navrail2.dart';
+import 'package:ck_linecode/navrail/navrail_example.dart';
 import 'package:ck_linecode/parent_child_method/parent_widget.dart';
 import 'package:ck_linecode/path_animate_bing/four.dart';
 import 'package:ck_linecode/reactjs_card/dashboard_view.dart';
@@ -10,7 +17,6 @@ import 'package:ck_linecode/validating/valid_page.dart';
 import 'package:flutter/material.dart';
 
 import 'animea/view_voo.dart';
-import 'custompain/myview.dart';
 import 'dart_extension_4/abs_coordinate_widget.dart';
 import 'dart_extension_5/demo.dart';
 import 'dynamic_appbar/dynamic_appbar.dart';
@@ -26,8 +32,14 @@ class MyHome extends StatelessWidget {
       appBar: AppBar(title: const Text("100K Line Code")),
       body: ListView(
         children: const [
+          RowTile(title: "Nav Rail", page: NavRailExample()),
           RowTile(title: "Flutter ntoes", page: FluttenotsView()),
+<<<<<<< HEAD
           RowTile(title: "Dart extension 7", page: ExtDartsample()),
+=======
+          RowTile(
+              title: "Future Builder Explo", page: FutureBuilderExploSCreen()),
+>>>>>>> 491cabe0443d020137a86d3c18711525c561dcd8
           RowTile(title: "Form Location Gmaps", page: FormLocation()),
           RowTile(title: "Dynamic Header", page: DynamicAppbar()),
           RowTile(title: "Spinkit clone", page: Spinkitclone()),
@@ -40,7 +52,7 @@ class MyHome extends StatelessWidget {
           RowTile(title: "Medium Notification Clone", page: NotifScreen()),
           RowTile(title: "Responsive Card Dashboard", page: DashboardView()),
           RowTile(title: "OVO Loading Clone", page: AnimeaScreen()),
-          RowTile(title: "Wave Animation", page: MyView()),
+          RowTile(title: "Wave Animation", page: ViewWabe()),
           RowTile(
               title: "Invoke Children Method From Parent",
               page: ParentWidget()),

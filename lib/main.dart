@@ -7,13 +7,12 @@ import 'package:provider/provider.dart';
 import 'home.dart';
 
 void main() => runApp(
-      // DevicePreview(
-      //   enabled: !kReleaseMode,
-      //   builder: (context) => const MyApp(), // Wrap your app
-      // ),
+    // DevicePreview(
+    //   enabled: !kReleaseMode,
+    //   builder: (context) => const MyApp(), // Wrap your app
+    // ),
 
-      const MyApp()
-    );
+    const MyApp());
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
