@@ -50,6 +50,7 @@ class MyHome extends StatelessWidget {
           RowTile(
               title: "Invoke Children Method From Parent",
               page: ParentWidget()),
+          CircularProgressIndicator()
         ],
       ),
     );

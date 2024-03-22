@@ -18,6 +18,7 @@ class _FourthTryState extends State<FourthTry>
       vsync: this,
       duration: const Duration(seconds: 2),
     )..repeat();
+
     super.initState();
   }
 
@@ -44,6 +45,10 @@ class _FourthTryState extends State<FourthTry>
   }
 }
 
+/// if the diffrent betwen head and tail is less than  or same epsilon
+/// reset the animation
+const double epsilon = .001;
+
 class PathPainter extends CustomPainter with ChangeNotifier {
   AnimationController controller;
   double _fraction = 0.0;
@@ -52,6 +57,12 @@ class PathPainter extends CustomPainter with ChangeNotifier {
   PathPainter(this.controller) {
     controller.addListener(() {
       _fraction = controller.value;
+      print("set fraction: $_fraction");
+      print("${controller.status}");
+      print("upper: ${controller.upperBound}");
+      print("lower ${controller.lowerBound}");
+
+      /// handle if reach upper but tail not meet the head, continue the animation
       notifyListeners();
     });
   }
@@ -332,17 +343,40 @@ class PathPainter extends CustomPainter with ChangeNotifier {
       ..strokeWidth = 5.0
       ..style = PaintingStyle.stroke;
 
-      
     _pathMetric = path_0.computeMetrics().first;
+    double head;
+    double tail;
 
-      final startLength = _pathMetric.length * _fraction;
-    final endLength = startLength - (_pathMetric.length / 2);
+    /// cubic again the fration to make it different from the head
+    double easedProgress1 = Curves.easeInExpo.transform(_fraction);
+    double easedProgress = Curves.easeInQuint.transform(easedProgress1 * 0.9);
+    // sampe sini udah ok animasi tailnya.
+    // skrng kurang gimana si head tetap nambah terus lewatin titik nol sampai
+    // nunggu si ekor menyusul dan baru reset ketika sama dgn episilon
 
-    // final startPath = _pathMetric.extractPath(0.0, startLength);
-    final endPath = _pathMetric.extractPath(endLength, startLength);
+    head = _pathMetric.length * _fraction;
+    tail = _pathMetric.length * easedProgress;
+    print("head: $head, tail: $tail  fraction: $_fraction ");
+    // tail = head - (_pathMetric.length / 2);
 
-    // canvas.drawPath(startPath, paint);
-    canvas.drawPath(endPath.shift(Offset(size.width / 2, size.height / 2)), paint);
+    if (tail < 0) {
+      tail = 0;
+    }
+
+    if ((head - tail).abs() < epsilon) {
+      print("Masukkk");
+      controller.reset();
+      controller.forward();
+      _fraction = 0.0;
+    }
+
+    /// normal condition
+    if (tail < head) {
+      final endPath = _pathMetric.extractPath(tail, head);
+
+      canvas.drawPath(
+          endPath.shift(Offset(size.width / 2, size.height / 2)), paint);
+    } else {}
   }
 
   @override
