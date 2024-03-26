@@ -1,10 +1,10 @@
+import 'package:ck_linecode/altering_icon/alter_app.dart';
 import 'package:ck_linecode/custom_table/my_table.dart';
 import 'package:ck_linecode/dart_extension_7/sample7.dart';
 import 'package:ck_linecode/custompain/prev.dart';
 import 'package:ck_linecode/flutter_notes/flitnots.dart';
 import 'package:ck_linecode/future_builder_exp/futur.dart';
 import 'package:ck_linecode/gmaps_webview/pick_location_form.dart';
-import 'package:ck_linecode/navrail/navrail2.dart';
 import 'package:ck_linecode/navrail/navrail_example.dart';
 import 'package:ck_linecode/parent_child_method/parent_widget.dart';
 import 'package:ck_linecode/path_animate_bing/four.dart';
@@ -29,6 +29,7 @@ class MyHome extends StatelessWidget {
       appBar: AppBar(title: const Text("100K Line Code")),
       body: ListView(
         children: const [
+          RowTile(title: "Change Icon", page: AlteringApp()),
           RowTile(title: "Nav Rail", page: NavRailExample()),
           RowTile(title: "Flutter ntoes", page: FluttenotsView()),
           RowTile(title: "Dart extension 7", page: ExtDartsample()),
@@ -50,7 +51,6 @@ class MyHome extends StatelessWidget {
           RowTile(
               title: "Invoke Children Method From Parent",
               page: ParentWidget()),
-          CircularProgressIndicator()
         ],
       ),
     );
