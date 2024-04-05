@@ -28,6 +28,7 @@ dependencies:
   rxdart: ^0.27.7
   collection: ^1.17.2
   percent_indicator: ^4.2.3
+  table_calendar: ^3.0.9
   # path_provider_windows: ^2.1.6
 
 dev_dependencies:
